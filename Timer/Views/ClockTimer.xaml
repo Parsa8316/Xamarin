@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Timer.Views.ClockTimer"
+             xmlns:views="clr-namespace:Timer.Views"
+             xmlns:models="clr-namespace:Timer.Models"
+             Title="clocktimer"
+             Style="{AppThemeBinding Dark={StaticResource DarkContentPages}, Light={StaticResource LightContentPages}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="MainList" ItemSelected="MainList_ItemSelected" SeparatorColor="Transparent" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="models:ClockTimer">
+                        <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Delete" Clicked="MenuItem_Clicked"/>
+                                <MenuItem x:DataType="views:ClockTimer" x:Name="PinnedMenu" Text="Pin/Unpin" Clicked="MenuItem_Clicked_1"/>
+                            </ViewCell.ContextActions>
+                            <StackLayout Padding="0,0,0,1" BackgroundColor="White">
+                                <Grid ColumnDefinitions="*,Auto" Padding="10" BackgroundColor="{AppThemeBinding Dark=Black, Light=#CCCCCC}">
+                                    <Grid Grid.Column="0" ColumnDefinitions="Auto,Auto">
+                                        <Label Style="{AppThemeBinding Dark={StaticResource DarkClockTimerLabel}, Light={StaticResource LightClockTimerLabel}}" Text="{Binding Time}"/>
+                                        <Label Style="{AppThemeBinding Dark={StaticResource DarkClockTimerLabel}, Light={StaticResource LightClockTimerLabel}}" TextColor="{AppThemeBinding Dark=DarkGray, Light=Gray}" Padding="7" FontSize="15" VerticalOptions="Center" Grid.Column="1" Text="pinned" IsVisible="{Binding IsPinned}"/>
+                                    </Grid>
+                                    <CheckBox Grid.Column="1" Style="{StaticResource Checkboxes}" IsChecked="{Binding IsOn}" CheckedChanged="RdIsOn_CheckedChanged"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Padding="15">
+                <Button HorizontalOptions="End" CornerRadius="100" HeightRequest="60" WidthRequest="60" Text="+" FontSize="30"
+                        Clicked="AddButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

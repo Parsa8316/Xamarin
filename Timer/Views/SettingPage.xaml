@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Timer.Views.SettingPage"
+             xmlns:views="clr-namespace:Timer.Views"
+             xmlns:models="clr-namespace:Timer.Models"
+             Title="setting"
+             Style="{AppThemeBinding Dark={StaticResource DarkContentPages}, Light={StaticResource LightContentPages}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid ColumnDefinitions="*,*" Grid.Row="0">
+                <RadioButton CheckedChanged="RdL_CheckedChanged" Margin="5" Value="Light" TextColor="White" Grid.Column="0" x:Name="RdL"/>
+                <Label Margin="40,2,0,0" FontSize="25" Text="light" TextColor="{AppThemeBinding Dark=White, Light=Black}" Grid.Column="0"/>
+                <Label Margin="40,2,0,0" FontSize="25" Text="dark" TextColor="{AppThemeBinding Dark=White, Light=Black}" Grid.Column="1"/>
+                <RadioButton CheckedChanged="RdL_CheckedChanged" Margin="5" Value="Dark" Grid.Column="1" x:Name="RdD"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

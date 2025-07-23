@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Timer.Views.Clock"
+             Title="Clock"
+             Style="{AppThemeBinding Dark={StaticResource DarkContentPages}, Light={StaticResource LightContentPages}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid RowDefinitions="Auto,Auto,Auto" Padding="0,60">
+
+                <Grid HorizontalOptions="Center" Grid.Row="0" Padding="10" RowDefinitions="Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto">
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" x:Name="TxtYear" Grid.Column="0"/>
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" Grid.Column="1" Text="/"/>
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" x:Name="TxtMonth" Grid.Column="2"/>
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" Grid.Column="3" Text="/"/>
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" x:Name="TxtDay" Grid.Column="4"/>
+                </Grid>
+                <Grid HorizontalOptions="Center" Grid.Row="1" Padding="10" RowDefinitions="Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto">
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" x:Name="TxtHour" Grid.Column="0"/>
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" Grid.Column="1" Text=":"/>
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" x:Name="TxtMin" Grid.Column="2"/>
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" Grid.Column="3" Text=":"/>
+                    <Label Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" x:Name="TxtSec" Grid.Column="4"/>
+                </Grid>
+                <Label Padding="0,60" Grid.Row="2" Style="{AppThemeBinding Dark={StaticResource DarkShowClock}, Light={StaticResource LightShowClock}}" Text="Tehran +3:30"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

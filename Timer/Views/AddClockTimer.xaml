@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Timer.Views.AddClockTimer"
+             xmlns:views="clr-namespace:Timer.Views"
+             xmlns:models="clr-namespace:Timer.Models"
+             Title="timer"
+             Style="{AppThemeBinding Dark={StaticResource DarkContentPages}, Light={StaticResource LightContentPages}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="10">
+
+                <Grid ColumnDefinitions="*,*" Grid.Row="0">
+                    <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" Grid.Column="0" x:Name="TxtHour" Placeholder="hour"/>
+                    <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" Grid.Column="1" x:Name="TxtMinute" Placeholder="minute"/>
+                </Grid>
+
+                <Frame Grid.Row="1" BackgroundColor="{AppThemeBinding Dark=DarkGray, Light=#CCCCCC}" Padding="13">
+                    <Grid Style="{AppThemeBinding Dark={StaticResource DarkAddClockGrid}, Light={StaticResource LightAddClockGrid}}" ColumnDefinitions="*,*">
+                        <Label Grid.Column="0" VerticalOptions="Center" TextColor="Black" FontSize="19" Text="is on ?"/>
+                        <CheckBox x:Name="RdIsOn" Grid.Column="1" Style="{AppThemeBinding Dark={StaticResource DarkAddCheckBoxes}, Light={StaticResource LightAddCheckBoxes}}"/>
+                    </Grid>
+                </Frame>
+
+                <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" x:Name="TxtRingtone" Grid.Row="2" Placeholder="ringtone"/>
+
+                <Frame BackgroundColor="{AppThemeBinding Dark=DarkGray, Light=#CCCCCC}" Grid.Row="3" Padding="2,13">
+                    <Grid ColumnDefinitions="*,*,*,*,*,*,*" RowDefinitions="Auto,Auto">
+                        <Label Style="{StaticResource DarkWeekDays}" Grid.Row="0" Grid.Column="0" Text="monday"/>
+                        <Label Style="{StaticResource DarkWeekDays}" Grid.Row="0" Grid.Column="1" Text="tuesday"/>
+                        <Label Style="{StaticResource DarkWeekDays}" Grid.Row="0" Grid.Column="2" Text="wednesday"/>
+                        <Label Style="{StaticResource DarkWeekDays}" Grid.Row="0" Grid.Column="3" Text="thursday"/>
+                        <Label Style="{StaticResource DarkWeekDays}" Grid.Row="0" Grid.Column="4" Text="friday"/>
+                        <Label Style="{StaticResource DarkWeekDays}" Grid.Row="0" Grid.Column="5" Text="saturday"/>
+                        <Label Style="{StaticResource DarkWeekDays}" Grid.Row="0" Grid.Column="6" Text="sunday"/>
+
+                        <CheckBox Style="{AppThemeBinding Dark={StaticResource DarkWeekDaysCheckBoxes}, Light={StaticResource LightWeekDaysCheckBoxes}}" x:Name="RdMod" Grid.Row="1" Grid.Column="0"/>
+                        <CheckBox Style="{AppThemeBinding Dark={StaticResource DarkWeekDaysCheckBoxes}, Light={StaticResource LightWeekDaysCheckBoxes}}" x:Name="RdTue" Grid.Row="1" Grid.Column="1"/>
+                        <CheckBox Style="{AppThemeBinding Dark={StaticResource DarkWeekDaysCheckBoxes}, Light={StaticResource LightWeekDaysCheckBoxes}}" x:Name="RdWed" Grid.Row="1" Grid.Column="2"/>
+                        <CheckBox Style="{AppThemeBinding Dark={StaticResource DarkWeekDaysCheckBoxes}, Light={StaticResource LightWeekDaysCheckBoxes}}" x:Name="RdThu" Grid.Row="1" Grid.Column="3"/>
+                        <CheckBox Style="{AppThemeBinding Dark={StaticResource DarkWeekDaysCheckBoxes}, Light={StaticResource LightWeekDaysCheckBoxes}}" x:Name="RdFri" Grid.Row="1" Grid.Column="4"/>
+                        <CheckBox Style="{AppThemeBinding Dark={StaticResource DarkWeekDaysCheckBoxes}, Light={StaticResource LightWeekDaysCheckBoxes}}" x:Name="RdSat" Grid.Row="1" Grid.Column="5"/>
+                        <CheckBox Style="{AppThemeBinding Dark={StaticResource DarkWeekDaysCheckBoxes}, Light={StaticResource LightWeekDaysCheckBoxes}}" x:Name="RdSun" Grid.Row="1" Grid.Column="6"/>
+                    </Grid>
+                </Frame>
+
+                <Frame Grid.Row="4" BackgroundColor="{AppThemeBinding Dark=DarkGray, Light=#CCCCCC}" Padding="13">
+                    <Grid ColumnDefinitions="*,*" VerticalOptions="Center">
+                        <Label Grid.Column="0" VerticalOptions="Center" TextColor="Black" FontSize="19" Text="repeat"/>
+                        <CheckBox x:Name="RdRepeat" Grid.Column="1" Style="{AppThemeBinding Dark={StaticResource DarkAddCheckBoxes}, Light={StaticResource LightAddCheckBoxes}}"/>
+                    </Grid>
+                </Frame>
+
+                <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" x:Name="TxtExplanation" Grid.Row="5" Placeholder="explanation"/>
+
+                <Grid ColumnDefinitions="*,*" Grid.Row="6">
+                    <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" Grid.Column="0" x:Name="TxtHowLongHour" Placeholder="how long to repeat hour"/>
+                    <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" Grid.Column="1" x:Name="TxtHowLongMinute" Placeholder="how long to repeat minute"/>
+                </Grid>
+                <Button x:Name="BtnMain" Grid.Row="7" Clicked="BtnMain_Clicked"/>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

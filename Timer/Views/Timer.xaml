@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Timer.Views.Timer"
+             xmlns:views="clr-namespace:Timer.Views"
+             xmlns:models="clr-namespace:Timer.Models"
+             Title="timer"
+             Style="{AppThemeBinding Dark={StaticResource DarkContentPages}, Light={StaticResource LightContentPages}}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid Padding="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" Grid.Column="0" x:Name="TxtDay" Placeholder="day"/>
+                    <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" Grid.Column="1" x:Name="TxtHour" Placeholder="hour"/>
+                    <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" Grid.Column="2" x:Name="TxtMin" Placeholder="min"/>
+                    <Entry Style="{AppThemeBinding Dark={StaticResource DarkEntries}, Light={StaticResource LightEntries}}" Grid.Column="3" x:Name="TxtSec" Placeholder="sec"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Style="{StaticResource DarkButtons}" Grid.Column="0" Text="start" x:Name="BtnStart" Clicked="Button_Clicked"/>
+                    <Button Style="{StaticResource DarkButtons}" Grid.Column="1" Text="reset" x:Name="BtnReset" Clicked="BtnReset_Clicked"/>
+                    <Button Style="{StaticResource DarkButtons}" Grid.Column="2" Text="lop" x:Name="BtnLop" Clicked="BtnLop_Clicked"/>
+                    <Button Style="{StaticResource DarkButtons}" Grid.Column="3" Text="again" x:Name="BtnAgain" Clicked="BtnAgain_Clicked"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+
+                    <ListView x:Name="LapList" SeparatorColor="White">
+                        <ListView.Header>
+                            <Grid x:Name="ListHeader" IsVisible="false" Padding="0" RowDefinitions="Auto" ColumnDefinitions="*,*,*,*,*,*,*,Auto">
+                                <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="0" Text="day"/>
+                                <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="1" Text=":"/>
+                                <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="2" Text="hour"/>
+                                <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="3" Text=":"/>
+                                <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="4" Text="min"/>
+                                <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="5" Text=":"/>
+                                <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="6" Text="sec"/>
+                                <Button BackgroundColor="Transparent" TextColor="Transparent" FontSize="12"  WidthRequest="50" Grid.Column="7" Text="del"/>
+                            </Grid>
+                        </ListView.Header>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="models:TimerTime">
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Grid Padding="5" ColumnDefinitions="*,*,*,*,*,*,*,Auto">
+                                            <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="0" Text="{Binding day}"/>
+                                            <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="1" Text=":"/>
+                                            <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="2" Text="{Binding hour}"/>
+                                            <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="3" Text=":"/>
+                                            <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="4" Text="{Binding minute}"/>
+                                            <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="5" Text=":"/>
+                                            <Label Style="{AppThemeBinding Dark={StaticResource DarkLapChilds}, Light={StaticResource LightLapChilds}}" Grid.Column="6" Text="{Binding second}"/>
+                                            <Button BackgroundColor="Transparent" TextColor="Red" FontSize="12" WidthRequest="50" Grid.Column="7" Text="del" Clicked="Button_Clicked_1"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </Grid>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

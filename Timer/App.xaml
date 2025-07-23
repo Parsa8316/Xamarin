@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Timer.App">
+    <!--
+    Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#444444</Color>
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style x:Key="ContentPages" TargetType="ContentPage">
+                <Setter Property="Padding" Value="0,5"/>
+            </Style>
+            <Style x:Key="DarkContentPages" TargetType="ContentPage" BasedOn="{StaticResource ContentPages}">
+                <Setter Property="BackgroundColor" Value="Black"/>
+            </Style>
+            <Style x:Key="LightContentPages" TargetType="ContentPage" BasedOn="{StaticResource ContentPages}">
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style x:Key="DarkButtons" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#444444"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="LightButtons" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#DDDDDD"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="LapChilds" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="LineBreakMode" Value="NoWrap"/>
+            </Style>
+            <Style x:Key="DarkLapChilds" TargetType="Label" BasedOn="{StaticResource LapChilds}">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="LightLapChilds" TargetType="Label" BasedOn="{StaticResource LapChilds}">
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+
+            <Style x:Key="Entries" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="DarkGray"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="PlaceholderColor" Value="Black"/>
+                <Setter Property="Visual" Value="Material"/>
+            </Style>
+            <Style x:Key="LightEntries" TargetType="Entry" BasedOn="{StaticResource Entries}">
+                <Setter Property="BackgroundColor" Value="#CCCCCC"/>
+            </Style>
+            <Style x:Key="DarkEntries" TargetType="Entry" BasedOn="{StaticResource Entries}">
+                <Setter Property="BackgroundColor" Value="DarkGray"/>
+            </Style>
+            <Style x:Key="ShowClock" TargetType="Label">
+                <Setter Property="FontSize" Value="60"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="DarkShowClock" TargetType="Label" BasedOn="{StaticResource ShowClock}">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="LightShowClock" TargetType="Label" BasedOn="{StaticResource ShowClock}">
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="ClockTimerLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="40"/>
+            </Style>
+            <Style x:Key="DarkClockTimerLabel" TargetType="Label" BasedOn="{StaticResource ClockTimerLabel}">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style x:Key="LightClockTimerLabel" TargetType="Label" BasedOn="{StaticResource ClockTimerLabel}">
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            <Style x:Key="Checkboxes" TargetType="CheckBox">
+                <Setter Property="Color" Value="White"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="Scale" Value="1.5"/>
+            </Style>
+            <Style x:Key="WeekDays" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="13"/>
+                <Setter Property="LineBreakMode" Value="TailTruncation"/>
+            </Style>
+            <Style x:Key="DarkWeekDays" TargetType="Label" BasedOn="{StaticResource WeekDays}">
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+
+            <Style x:Key="WeekDaysCheckBoxes" TargetType="CheckBox">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="DarkWeekDaysCheckBoxes" TargetType="CheckBox" BasedOn="{StaticResource WeekDaysCheckBoxes}">
+                <Setter Property="Color" Value="Black"/>
+            </Style>
+            <Style x:Key="LightWeekDaysCheckBoxes" TargetType="CheckBox" BasedOn="{StaticResource WeekDaysCheckBoxes}">
+                <Setter Property="Color" Value="White"/>
+            </Style>
+
+            <Style x:Key="AddCheckBoxes" TargetType="CheckBox">
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="Scale" Value="1.5"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="DarkAddCheckBoxes" TargetType="CheckBox" BasedOn="{StaticResource AddCheckBoxes}">
+                <Setter Property="Color" Value="Black"/>
+            </Style>
+            <Style x:Key="LightAddCheckBoxes" TargetType="CheckBox" BasedOn="{StaticResource AddCheckBoxes}">
+                <Setter Property="Color" Value="White"/>
+            </Style>
+
+            <Style x:Key="AddClockGrid" TargetType="Grid">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="DarkAddClockGrid" TargetType="Grid" BasedOn="{StaticResource AddClockGrid}">
+                <Setter Property="BackgroundColor" Value="DarkGray"/>
+            </Style>
+            <Style x:Key="LightAddClockGrid" TargetType="Grid" BasedOn="{StaticResource AddClockGrid}">
+                <Setter Property="BackgroundColor" Value="#CCCCCC"/>
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
